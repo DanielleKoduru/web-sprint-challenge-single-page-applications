@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function Pizza(props) {
+    if (!props) {
+        return <h3>Working on fetching the user details...</h3>;
+    }
 
     const { name, size, toppings, instructions } = props.pizza;
 

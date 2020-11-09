@@ -176,9 +176,9 @@ export default function Form(props) {
                         Instructions:&nbsp;
                     <input
                             name="Instructions"
-                            type="checkbox"
+                            type="type"
                             onChange={onInputChange}
-                            checked={values.toppings.Instructions}
+                            value={values.instructions}
                         />
                     </label>
                 </div>

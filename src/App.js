@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Switch, Link, Redirect } from "react-router-dom";
 import './App.css';
 import Form from './Form';
 import Pizza from './Pizza';
@@ -49,6 +49,7 @@ const App = () => {
         console.log(response.data)
       })
       .catch((error) => {
+        debugger
         console.log(error);
       })
       .finally(() => {
@@ -72,7 +73,7 @@ const App = () => {
       .catch((error) => {
         setFormErrors({
           ...formErrors,
-          [name]: error.errors[0],
+          [name]: error.errors,
         });
       });
 
@@ -116,28 +117,42 @@ const App = () => {
 
 
   return (
-    <div className="App">
+    <>
       <nav>
         <h1>Lambda Eats</h1>
         <div className="nav">
-          <Link to="/" id="home">Home</Link>
+          <Link to="/" id="home"> Home </Link>
+          <Link to="/Pizza" id="pizzaOrder"> Pizza Order </Link>
+          <Link to="/help" id="help"> Help </Link>
         </div>
       </nav>
 
-      <Route path="/pizza-builder">
-        <Form
-          onInputChange={onInputChange}
-          onSubmit={onSubmit}
-          onCheckboxChange={onCheckboxChange}
-          disabled={disabled}
-          errors={formErrors}
-          values={formValues}
-        />
-        {currentPizza.map((pizza, index) => {
-          return <Pizza key={index} pizza={pizza} />;
-        })}
-      </Route>
-    </div>
+      <Switch>
+        <Route path="/help">
+          <h1>Your Favorite Food, Delivered While Coding</h1>
+          <p>Pizza?</p>
+        </Route>
+
+        <Route path="/Pizza">
+          <Form
+            onInputChange={onInputChange}
+            onSubmit={onSubmit}
+            onCheckboxChange={onCheckboxChange}
+            disabled={disabled}
+            errors={formErrors}
+            values={formValues}
+          />
+          {currentPizza.map((pizza, index) => {
+            return <div key={index} >
+              <h2>{pizza.name}</h2>
+              <p>{pizza.size}</p>
+              <p>{pizza.topings}</p>
+              <p>{pizza.instructions}</p>
+            </div>
+          })}
+        </Route>
+      </Switch>
+    </>
   );
 };
 
