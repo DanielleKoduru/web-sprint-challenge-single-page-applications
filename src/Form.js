@@ -24,7 +24,7 @@ export default function Form(props) {
                     Name:&nbsp;
                 <input
                         name="name"
-                        type="type"
+                        type="text"
                         onChange={onInputChange}
                         value={values.name}
                     />

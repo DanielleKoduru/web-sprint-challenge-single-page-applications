@@ -43,18 +43,15 @@ const App = () => {
 
   const postPizza = (pizza) => {
     axios
-      .post(`https://reqres.in/`, pizza)
+      .post(`https://reqres.in/api/users`, pizza)
       .then((response) => {
-        pizza([response.data, ...currentPizza]);
-        console.log(response.data)
+        setCurrentPizza([response.data, ...currentPizza]);
+        console.log(response)
       })
       .catch((error) => {
         debugger
         console.log(error);
       })
-      .finally(() => {
-        setFormValues(initialFormValues);
-      });
   };
 
   const onInputChange = (event) => {
@@ -122,18 +119,18 @@ const App = () => {
         <h1>Lambda Eats</h1>
         <div className="nav">
           <Link to="/" id="home"> Home </Link>
-          <Link to="/Pizza" id="pizzaOrder"> Pizza Order </Link>
+          <Link to="/Pizza" id="pizzaOrder"> Order </Link>
           <Link to="/help" id="help"> Help </Link>
         </div>
       </nav>
       <h2>Your Favorite Food, Delivered While Coding</h2>
-      <p>Pizza?</p>
 
       <Switch>
         <Route path="/help">
+          <h1>Hungry? We are here to help!</h1>
         </Route>
 
-        <Route path="/Pizza">
+        <Route path="/pizza">
           <Form
             onInputChange={onInputChange}
             onSubmit={onSubmit}
@@ -143,10 +140,14 @@ const App = () => {
             values={formValues}
           />
           {currentPizza.map((pizza, index) => {
+            let toppingList = Object.keys(pizza.toppings);
+            let chosenToppings = toppingList.filter(function (picked) {
+              return pizza.toppings[picked];
+            });
             return <div key={index} >
               <h2>{pizza.name}</h2>
               <p>{pizza.size}</p>
-              <p>{pizza.toppings}</p>
+              <p>{chosenToppings}</p>
               <p>{pizza.instructions}</p>
             </div>
           })}
