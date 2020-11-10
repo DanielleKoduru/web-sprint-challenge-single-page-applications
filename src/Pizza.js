@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Pizza(props) {
     if (!props) {
-        return <h3>Working on fetching the user details...</h3>;
+        return <h3>Working on fetching your order...</h3>;
     }
 
     const { name, size, toppings, instructions } = props.pizza;
@@ -23,7 +23,7 @@ export default function Pizza(props) {
                 return <li key={index}>-{topping}</li>;
             })}
             </ul>
-            <h3>Instructions (if any): {instructions}</h3>
+            <h3>Special Instructions (if any): {instructions}</h3>
             <h3>Thank you for your order!</h3>
         </div>
     );

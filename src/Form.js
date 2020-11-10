@@ -19,6 +19,7 @@ export default function Form(props) {
             <form onSubmit={onSubmit}>
                 <h3>Customize Your Pizza</h3>
 
+                <div className="pizza-form-name" />
                 <label>
                     Name:&nbsp;
                 <input
@@ -29,6 +30,7 @@ export default function Form(props) {
                     />
                 </label>
 
+                <div className="pizza-form-size" />
                 <label>
                     Choose Size:&nbsp;
                 <select name="size" value={values.size} onChange={onInputChange}>
@@ -40,9 +42,12 @@ export default function Form(props) {
                     </select>
                 </label>
 
+                <div className="pizza-form-toppings" />
                 <div>
                     Add Toppings
-                <label>
+
+            <div className="pizza-form-topping1" />
+                    <label>
                         Pepperoni:&nbsp;
                     <input
                             name="pepperoni"
@@ -52,6 +57,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping2" />
                     <label>
                         Sausage:&nbsp;
                     <input
@@ -62,6 +68,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping3" />
                     <label>
                         Ham:&nbsp;
                     <input
@@ -72,6 +79,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping4" />
                     <label>
                         Chicken:&nbsp;
                     <input
@@ -82,6 +90,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping5" />
                     <label>
                         Tomatoes:&nbsp;
                     <input
@@ -92,6 +101,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping6" />
                     <label>
                         Onions:&nbsp;
                     <input
@@ -102,6 +112,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping7" />
                     <label>
                         Olives:&nbsp;
                     <input
@@ -112,6 +123,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping8" />
                     <label>
                         Green Peppers:&nbsp;
                     <input
@@ -122,6 +134,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping9" />
                     <label>
                         Green Chilies:&nbsp;
                     <input
@@ -132,6 +145,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping10" />
                     <label>
                         Pineapple:&nbsp;
                     <input
@@ -142,6 +156,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping11" />
                     <label>
                         Extra Cheese:&nbsp;
                     <input
@@ -152,6 +167,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping12" />
                     <label>
                         No Cheese:&nbsp;
                     <input
@@ -162,6 +178,7 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="pizza-form-topping13" />
                     <label>
                         Extra Sauce:&nbsp;
                     <input
@@ -172,15 +189,23 @@ export default function Form(props) {
                         />
                     </label>
 
+                    <div className="special-instructions" />
                     <label>
-                        Instructions:&nbsp;
+                        Special Instructions:&nbsp;
                     <input
-                            name="Instructions"
+                            name="instructions"
                             type="type"
                             onChange={onInputChange}
                             value={values.instructions}
                         />
                     </label>
+
+                    <div className="submit-button" />
+                    <button disabled={disabled}>Submit</button>
+                    <div className="errors">
+                        <div>{errors.name}</div>
+                        <div>{errors.size}</div>
+                    </div>
                 </div>
             </form>
         </div>

@@ -126,11 +126,11 @@ const App = () => {
           <Link to="/help" id="help"> Help </Link>
         </div>
       </nav>
+      <h2>Your Favorite Food, Delivered While Coding</h2>
+      <p>Pizza?</p>
 
       <Switch>
         <Route path="/help">
-          <h1>Your Favorite Food, Delivered While Coding</h1>
-          <p>Pizza?</p>
         </Route>
 
         <Route path="/Pizza">
@@ -146,10 +146,12 @@ const App = () => {
             return <div key={index} >
               <h2>{pizza.name}</h2>
               <p>{pizza.size}</p>
-              <p>{pizza.topings}</p>
+              <p>{pizza.toppings}</p>
               <p>{pizza.instructions}</p>
             </div>
           })}
+        </Route>
+        <Route path="/Pizza">
         </Route>
       </Switch>
     </>
